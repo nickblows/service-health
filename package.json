@@ -1,0 +1,22 @@
+{
+  "name": "service-health",
+  "version": "1.0.0",
+  "description": "A simple application for evaluating a live service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/basic.test.js",
+    "build": "echo 'Build step - stub'"
+  },
+  "keywords": [
+    "service",
+    "health",
+    "monitoring"
+  ],
+  "author": "Nick Blows",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.2",
+    "@hapi/inert": "^7.1.0"
+  }
+}
