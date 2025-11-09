@@ -5,7 +5,7 @@ A simple application for evaluating a live service
 
 - [x] 1.  Create basic prototype on main branch
 - [x] 2.  Deploy app on Render
-- [ ] 3.  Containerise the app
+- [x] 3.  Containerise the app
 - [ ] 4.  Add a defra logo svg
 - [ ] 5.  Update the readme to have a preview image of the finished site
 - [ ] 6.  Add .env file
