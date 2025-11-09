@@ -51,6 +51,9 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 **HTTP Status:** `200 OK`
 
 **Use Case:** Load balancer health checks and container orchestration readiness probes
+## Preview
+
+![Service Health Monitor Preview](https://github.com/user-attachments/assets/614286a0-d7c8-44f1-9bcd-aade919d8570)
 
 ## Todo
 
@@ -58,7 +61,7 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 - [x] 2.  Deploy app on Render
 - [x] 3.  Containerise the app
 - [ ] 4.  Add a defra logo svg
-- [ ] 5.  Update the readme to have a preview image of the finished site
+- [x] 5.  Update the readme to have a preview image of the finished site
 - [ ] 6.  Add .env file
 - [x] 7.  Add Health endpoints
 - [ ] 8.  Add database
