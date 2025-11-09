@@ -101,6 +101,17 @@ body {
   vertical-align: middle;
 }
 
+/* DEFRA logo */
+.defra-header__logotype {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.defra-header__logotype-image {
+  vertical-align: middle;
+  fill: currentColor;
+}
+
 /* Main content */
 .govuk-main-wrapper {
   padding-top: 20px;
