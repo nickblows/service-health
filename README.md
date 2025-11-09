@@ -1,6 +1,57 @@
 # Service Health
 A simple application for evaluating a live service
 
+## Health Endpoints
+
+The service provides three health check endpoints for monitoring and orchestration:
+
+### `/health`
+Returns comprehensive service health information including status, timestamp, service name, and version.
+
+**Response Example:**
+```json
+{
+  "status": "ok",
+  "timestamp": "2025-11-09T19:26:41.957Z",
+  "service": "service-health",
+  "version": "1.0.0"
+}
+```
+
+**HTTP Status:** `200 OK`
+
+**Use Case:** General health monitoring and service discovery
+
+### `/health/live`
+Liveness probe endpoint that indicates whether the service is running and operational.
+
+**Response Example:**
+```json
+{
+  "status": "ok",
+  "message": "Service is alive"
+}
+```
+
+**HTTP Status:** `200 OK`
+
+**Use Case:** Container orchestration liveness probes (e.g., Kubernetes, Docker Swarm)
+
+### `/health/ready`
+Readiness probe endpoint that indicates whether the service is ready to accept traffic.
+
+**Response Example:**
+```json
+{
+  "status": "ok",
+  "message": "Service is ready"
+}
+```
+
+**HTTP Status:** `200 OK`
+
+**Use Case:** Load balancer health checks and container orchestration readiness probes
+
 ## Todo
 
 - [x] 1.  Create basic prototype on main branch
