@@ -61,11 +61,16 @@ try {
   process.exit(1);
 }
 
-// Test 5: Check if README.md exists
+// Test 5: Check if README.md exists and contains deployed site link
 try {
   const readmePath = path.join(__dirname, '..', 'README.md');
   assert(fs.existsSync(readmePath), 'README.md should exist');
-  console.log('✓ Test 5 passed: README.md exists');
+  
+  const content = fs.readFileSync(readmePath, 'utf8');
+  assert(content.includes('https://service-health-nk4s.onrender.com'), 
+         'README.md should contain link to deployed site');
+  
+  console.log('✓ Test 5 passed: README.md exists and contains deployed site link');
 } catch (error) {
   console.error('✗ Test 5 failed:', error.message);
   process.exit(1);
