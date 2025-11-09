@@ -62,17 +62,29 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 
 ## Todo
 
-- [x] 1.  Create basic prototype on main branch
-- [x] 2.  Deploy app on Render
-- [x] 3.  Containerise the app
-- [ ] 4.  Add a defra logo svg
-- [x] 5.  Update the readme to have a preview image of the finished site
-- [ ] 6.  Add .env file
-- [x] 7.  Add Health endpoints
-- [ ] 8.  Add database
-- [ ] 9.  Add a github copilor root instruction file (.github/copilot-instructions.md)
-- [x] 10. Add a link on Readme to the deployed site on Render
-- [ ] 11. Add a GDS style Task List component to show all healthchecks and results
-- [ ] 12. Add a config file for the url of the service to monitor
-- [ ] 13. Add a worker to periodically visit the monitored service to check its status and update the status on the homepage
-- [ ] 14. Group the above tasks into similar groups and give the smaller tasks sub-task numbers. e.g. '7 Monitoring' '7.1 Add Health endpoints' etc.
+### 1. Initial Setup
+- [x] 1.1 Create basic prototype on main branch
+
+### 2. Deployment
+- [x] 2.1 Deploy app on Render
+- [x] 2.2 Containerise the app
+
+### 3. Configuration
+- [ ] 3.1 Add .env file
+- [ ] 3.2 Add a config file for the url of the service to monitor
+
+### 4. Monitoring
+- [x] 4.1 Add Health endpoints
+- [ ] 4.2 Add a worker to periodically visit the monitored service to check its status and update the status on the homepage
+
+### 5. Infrastructure
+- [ ] 5.1 Add database
+
+### 6. UI/Frontend
+- [ ] 6.1 Add a defra logo svg
+- [ ] 6.2 Add a GDS style Task List component to show all healthchecks and results
+
+### 7. Documentation
+- [x] 7.1 Update the readme to have a preview image of the finished site
+- [x] 7.2 Add a link on Readme to the deployed site on Render
+- [ ] 7.3 Add a github copilot root instruction file (.github/copilot-instructions.md)
