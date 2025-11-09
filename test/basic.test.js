@@ -95,5 +95,37 @@ try {
   process.exit(1);
 }
 
+// Test 8: Check if Dockerfile exists
+try {
+  const dockerfilePath = path.join(__dirname, '..', 'Dockerfile');
+  assert(fs.existsSync(dockerfilePath), 'Dockerfile should exist');
+  
+  const content = fs.readFileSync(dockerfilePath, 'utf8');
+  assert(content.includes('FROM'), 'Dockerfile should have FROM instruction');
+  assert(content.includes('WORKDIR'), 'Dockerfile should have WORKDIR instruction');
+  assert(content.includes('COPY'), 'Dockerfile should have COPY instruction');
+  assert(content.includes('EXPOSE'), 'Dockerfile should have EXPOSE instruction');
+  assert(content.includes('CMD'), 'Dockerfile should have CMD instruction');
+  
+  console.log('✓ Test 8 passed: Dockerfile exists and has required instructions');
+} catch (error) {
+  console.error('✗ Test 8 failed:', error.message);
+  process.exit(1);
+}
+
+// Test 9: Check if .dockerignore exists
+try {
+  const dockerignorePath = path.join(__dirname, '..', '.dockerignore');
+  assert(fs.existsSync(dockerignorePath), '.dockerignore should exist');
+  
+  const content = fs.readFileSync(dockerignorePath, 'utf8');
+  assert(content.includes('node_modules'), '.dockerignore should exclude node_modules');
+  
+  console.log('✓ Test 9 passed: .dockerignore exists and excludes node_modules');
+} catch (error) {
+  console.error('✗ Test 9 failed:', error.message);
+  process.exit(1);
+}
+
 console.log('\n✓ All tests passed!');
 process.exit(0);
