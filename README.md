@@ -8,3 +8,6 @@ A simple application for evaluating a live service
 - [ ] Containerise the app
 - [ ] Add a defra logo svg
 - [ ] Update the readme to have a preview image of the finished site
+- [ ] Add .env file
+- [ ] Add Health endpoints
+- [ ] Add database
