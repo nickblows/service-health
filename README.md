@@ -73,3 +73,6 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 - [ ] 9.  Add a github copilor root instruction file (.github/copilot-instructions.md)
 - [x] 10. Add a link on Readme to the deployed site on Render
 - [ ] 11. Add a GDS style Task List component to show all healthchecks and results
+- [ ] 12. Add a config file for the url of the service to monitor
+- [ ] 13. Add a worker to periodically visit the monitored service to check its status and update the status on the homepage
+- [ ] 14. Group the above tasks into similar groups and give the smaller tasks sub-task numbers. e.g. '7 Monitoring' '7.1 Add Health endpoints' etc.
