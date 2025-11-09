@@ -17,6 +17,42 @@ const init = async () => {
 
   await server.register(Inert);
 
+  // Health endpoints
+  server.route({
+    method: 'GET',
+    path: '/health',
+    handler: (request, h) => {
+      return h.response({
+        status: 'ok',
+        timestamp: new Date().toISOString(),
+        service: 'service-health',
+        version: '1.0.0'
+      }).code(200);
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/health/live',
+    handler: (request, h) => {
+      return h.response({
+        status: 'ok',
+        message: 'Service is alive'
+      }).code(200);
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/health/ready',
+    handler: (request, h) => {
+      return h.response({
+        status: 'ok',
+        message: 'Service is ready'
+      }).code(200);
+    }
+  });
+
   server.route({
     method: 'GET',
     path: '/{param*}',
