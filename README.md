@@ -4,6 +4,8 @@ A simple application for evaluating a live service
 ## Live Demo
 The service is deployed and available at: [https://service-health-nk4s.onrender.com](https://service-health-nk4s.onrender.com)
 
+> **Note:** The Render hosted app goes to sleep after 15 minutes of inactivity and may take a few seconds to wake up.
+
 ## Health Endpoints
 
 The service provides three health check endpoints for monitoring and orchestration:
