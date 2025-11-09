@@ -1,6 +1,9 @@
 # Service Health
 A simple application for evaluating a live service
 
+## Live Demo
+The service is deployed and available at: [https://service-health-nk4s.onrender.com](https://service-health-nk4s.onrender.com)
+
 ## Health Endpoints
 
 The service provides three health check endpoints for monitoring and orchestration:
@@ -66,5 +69,5 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 - [x] 7.  Add Health endpoints
 - [ ] 8.  Add database
 - [ ] 9.  Add a github copilor root instruction file (.github/copilot-instructions.md)
-- [ ] 10. Add a link on Readme to the deployed site on Render
+- [x] 10. Add a link on Readme to the deployed site on Render
 - [ ] 11. Add a GDS style Task List component to show all healthchecks and results
