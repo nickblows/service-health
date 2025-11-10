@@ -61,46 +61,43 @@
 
       <ul class="govuk-task-list" id="health-checks-list">
         <li class="govuk-task-list__item">
-          <div class="govuk-task-list__name-and-hint">
-            <div class="govuk-task-list__name">
-              <strong>/health</strong>
-            </div>
-            <div class="govuk-task-list__hint">
+          <span class="govuk-task-list__name-and-hint">
+            <span class="govuk-task-list__name">
+              /health
+            </span>
+            <span class="govuk-task-list__hint">
               General health monitoring and service discovery
-            </div>
-          </div>
-          <div class="govuk-task-list__status govuk-task-list__status--loading">
-            <span class="status-icon status-icon--loading">⏳</span>
-            Loading...
-          </div>
+            </span>
+          </span>
+          <strong class="govuk-tag govuk-task-list__status" id="status-health">
+            Checking
+          </strong>
         </li>
         <li class="govuk-task-list__item">
-          <div class="govuk-task-list__name-and-hint">
-            <div class="govuk-task-list__name">
-              <strong>/health/live</strong>
-            </div>
-            <div class="govuk-task-list__hint">
+          <span class="govuk-task-list__name-and-hint">
+            <span class="govuk-task-list__name">
+              /health/live
+            </span>
+            <span class="govuk-task-list__hint">
               Liveness probe - verifies service is running
-            </div>
-          </div>
-          <div class="govuk-task-list__status govuk-task-list__status--loading">
-            <span class="status-icon status-icon--loading">⏳</span>
-            Loading...
-          </div>
+            </span>
+          </span>
+          <strong class="govuk-tag govuk-task-list__status" id="status-live">
+            Checking
+          </strong>
         </li>
         <li class="govuk-task-list__item">
-          <div class="govuk-task-list__name-and-hint">
-            <div class="govuk-task-list__name">
-              <strong>/health/ready</strong>
-            </div>
-            <div class="govuk-task-list__hint">
+          <span class="govuk-task-list__name-and-hint">
+            <span class="govuk-task-list__name">
+              /health/ready
+            </span>
+            <span class="govuk-task-list__hint">
               Readiness probe - indicates service can accept traffic
-            </div>
-          </div>
-          <div class="govuk-task-list__status govuk-task-list__status--loading">
-            <span class="status-icon status-icon--loading">⏳</span>
-            Loading...
-          </div>
+            </span>
+          </span>
+          <strong class="govuk-tag govuk-task-list__status" id="status-ready">
+            Checking
+          </strong>
         </li>
       </ul>
     </main>
@@ -136,9 +133,9 @@
   <script>
     // Health check endpoints to monitor
     const healthChecks = [
-      { endpoint: '/health', name: '/health' },
-      { endpoint: '/health/live', name: '/health/live' },
-      { endpoint: '/health/ready', name: '/health/ready' }
+      { endpoint: '/health', id: 'status-health' },
+      { endpoint: '/health/live', id: 'status-live' },
+      { endpoint: '/health/ready', id: 'status-ready' }
     ];
 
     // Fetch health check status for a single endpoint
@@ -147,39 +144,39 @@
         const response = await fetch(endpoint);
         const data = await response.json();
         return {
-          status: response.ok && data.status === 'ok' ? 'completed' : 'error',
-          message: data.message || 'OK',
-          timestamp: data.timestamp || new Date().toISOString()
+          status: response.ok && data.status === 'ok' ? 'ok' : 'error',
+          message: data.message || 'Completed'
         };
       } catch (error) {
         return {
           status: 'error',
-          message: 'Failed to connect',
-          timestamp: new Date().toISOString()
+          message: 'Error'
         };
       }
     }
 
     // Update the task list item with health check result
-    function updateTaskListItem(index, result) {
-      const items = document.querySelectorAll('.govuk-task-list__item');
-      if (items[index]) {
-        const statusElement = items[index].querySelector('.govuk-task-list__status');
-        statusElement.className = `govuk-task-list__status govuk-task-list__status--${result.status}`;
-        
-        const icon = result.status === 'completed' ? '✓' : '✗';
-        const iconClass = `status-icon status-icon--${result.status}`;
-        const statusText = result.status === 'completed' ? 'OK' : 'Error';
-        
-        statusElement.innerHTML = `<span class="${iconClass}">${icon}</span>${statusText}`;
+    function updateTaskListItem(statusId, result) {
+      const statusElement = document.getElementById(statusId);
+      if (statusElement) {
+        // Remove all tag classes for completed items
+        if (result.status === 'ok') {
+          // Remove tag styling for completed items (plain black text, no background)
+          statusElement.className = 'govuk-task-list__status';
+          statusElement.textContent = 'Completed';
+        } else {
+          // Keep tag styling and add red modifier for errors
+          statusElement.className = 'govuk-tag govuk-tag--red govuk-task-list__status';
+          statusElement.textContent = 'Error';
+        }
       }
     }
 
     // Run health checks on page load
     async function runHealthChecks() {
-      for (let i = 0; i < healthChecks.length; i++) {
-        const result = await checkEndpoint(healthChecks[i].endpoint);
-        updateTaskListItem(i, result);
+      for (const check of healthChecks) {
+        const result = await checkEndpoint(check.endpoint);
+        updateTaskListItem(check.id, result);
       }
     }
 

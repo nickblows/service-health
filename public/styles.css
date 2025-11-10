@@ -396,11 +396,19 @@ body {
   margin-bottom: 0;
 }
 
+@media (min-width: 40.0625em) {
+  .govuk-task-list {
+    margin-bottom: 20px;
+  }
+}
+
 .govuk-task-list__item {
   border-bottom: 1px solid #b1b4b6;
   margin-bottom: 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  display: table;
+  width: 100%;
   position: relative;
 }
 
@@ -416,22 +424,31 @@ body {
 }
 
 .govuk-task-list__name-and-hint {
-  max-width: 66.66%;
-}
-
-@media (min-width: 40.0625em) {
-  .govuk-task-list__name-and-hint {
-    max-width: 75%;
-  }
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
 }
 
 .govuk-task-list__name {
+  display: block;
   margin-top: 0;
   margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+@media (min-width: 40.0625em) {
+  .govuk-task-list__name {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
 }
 
 .govuk-task-list__hint {
+  display: block;
   margin-top: 5px;
+  margin-bottom: 0;
   color: #505a5f;
   font-size: 16px;
   line-height: 1.25;
@@ -445,41 +462,41 @@ body {
 }
 
 .govuk-task-list__status {
-  margin-top: 0;
-  margin-bottom: 5px;
+  display: table-cell;
+  padding-left: 10px;
   text-align: right;
-  float: right;
+  vertical-align: top;
+  white-space: nowrap;
 }
 
-.govuk-task-list__status--completed {
-  color: #00703c;
+@media (min-width: 40.0625em) {
+  .govuk-task-list__status {
+    padding-left: 20px;
+  }
 }
 
-.govuk-task-list__status--error {
-  color: #d4351c;
+/* GOV.UK Tag modifiers for task list statuses */
+.govuk-tag--grey {
+  background-color: #f3f2f1;
+  color: #383f43;
 }
 
-.govuk-task-list__status--loading {
-  color: #505a5f;
+.govuk-tag--red {
+  background-color: #d4351c;
+  color: #ffffff;
 }
 
-/* Status icon */
-.status-icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  vertical-align: text-bottom;
+/* Completed status - plain text with no tag styling */
+.govuk-task-list__status:not(.govuk-tag) {
+  color: #0b0c0c;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
-.status-icon--completed {
-  color: #00703c;
-}
-
-.status-icon--error {
-  color: #d4351c;
-}
-
-.status-icon--loading {
-  color: #505a5f;
+@media (min-width: 40.0625em) {
+  .govuk-task-list__status:not(.govuk-tag) {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
 }

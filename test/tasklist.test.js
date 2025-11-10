@@ -59,8 +59,8 @@ test('styles.css contains Task List component styles', () => {
   assert(cssContent.includes('.govuk-task-list'), 'CSS should contain task list styles');
   assert(cssContent.includes('.govuk-task-list__item'), 'CSS should contain task list item styles');
   assert(cssContent.includes('.govuk-task-list__status'), 'CSS should contain status styles');
-  assert(cssContent.includes('.govuk-task-list__status--completed'), 'CSS should contain completed status style');
-  assert(cssContent.includes('.govuk-task-list__status--error'), 'CSS should contain error status style');
+  assert(cssContent.includes('.govuk-tag--red'), 'CSS should contain red tag modifier for errors');
+  assert(cssContent.includes('display: table'), 'CSS should use table display for layout');
 });
 
 // Test 5: Verify Task List has proper hints
