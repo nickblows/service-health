@@ -87,4 +87,4 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 ### 7. Documentation
 - [x] 7.1 Update the readme to have a preview image of the finished site
 - [x] 7.2 Add a link on Readme to the deployed site on Render
-- [ ] 7.3 Add a github copilot root instruction file (.github/copilot-instructions.md)
+- [x] 7.3 Add a github copilot root instruction file (.github/copilot-instructions.md)
