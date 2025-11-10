@@ -54,11 +54,54 @@
         The service is currently running and operational.
       </div>
 
-      <h2 class="govuk-heading-m">Features</h2>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Monitor service availability</li>
-        <li>Track service performance</li>
-        <li>View service status updates</li>
+      <h2 class="govuk-heading-m">Health Checks</h2>
+      <p class="govuk-body">
+        Monitor the status of all service health check endpoints.
+      </p>
+
+      <ul class="govuk-task-list" id="health-checks-list">
+        <li class="govuk-task-list__item">
+          <div class="govuk-task-list__name-and-hint">
+            <div class="govuk-task-list__name">
+              <strong>/health</strong>
+            </div>
+            <div class="govuk-task-list__hint">
+              General health monitoring and service discovery
+            </div>
+          </div>
+          <div class="govuk-task-list__status govuk-task-list__status--loading">
+            <span class="status-icon status-icon--loading">⏳</span>
+            Loading...
+          </div>
+        </li>
+        <li class="govuk-task-list__item">
+          <div class="govuk-task-list__name-and-hint">
+            <div class="govuk-task-list__name">
+              <strong>/health/live</strong>
+            </div>
+            <div class="govuk-task-list__hint">
+              Liveness probe - verifies service is running
+            </div>
+          </div>
+          <div class="govuk-task-list__status govuk-task-list__status--loading">
+            <span class="status-icon status-icon--loading">⏳</span>
+            Loading...
+          </div>
+        </li>
+        <li class="govuk-task-list__item">
+          <div class="govuk-task-list__name-and-hint">
+            <div class="govuk-task-list__name">
+              <strong>/health/ready</strong>
+            </div>
+            <div class="govuk-task-list__hint">
+              Readiness probe - indicates service can accept traffic
+            </div>
+          </div>
+          <div class="govuk-task-list__status govuk-task-list__status--loading">
+            <span class="status-icon status-icon--loading">⏳</span>
+            Loading...
+          </div>
+        </li>
       </ul>
     </main>
   </div>
@@ -89,5 +132,66 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Health check endpoints to monitor
+    const healthChecks = [
+      { endpoint: '/health', name: '/health' },
+      { endpoint: '/health/live', name: '/health/live' },
+      { endpoint: '/health/ready', name: '/health/ready' }
+    ];
+
+    // Fetch health check status for a single endpoint
+    async function checkEndpoint(endpoint) {
+      try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        return {
+          status: response.ok && data.status === 'ok' ? 'completed' : 'error',
+          message: data.message || 'OK',
+          timestamp: data.timestamp || new Date().toISOString()
+        };
+      } catch (error) {
+        return {
+          status: 'error',
+          message: 'Failed to connect',
+          timestamp: new Date().toISOString()
+        };
+      }
+    }
+
+    // Update the task list item with health check result
+    function updateTaskListItem(index, result) {
+      const items = document.querySelectorAll('.govuk-task-list__item');
+      if (items[index]) {
+        const statusElement = items[index].querySelector('.govuk-task-list__status');
+        statusElement.className = `govuk-task-list__status govuk-task-list__status--${result.status}`;
+        
+        const icon = result.status === 'completed' ? '✓' : '✗';
+        const iconClass = `status-icon status-icon--${result.status}`;
+        const statusText = result.status === 'completed' ? 'OK' : 'Error';
+        
+        statusElement.innerHTML = `<span class="${iconClass}">${icon}</span>${statusText}`;
+      }
+    }
+
+    // Run health checks on page load
+    async function runHealthChecks() {
+      for (let i = 0; i < healthChecks.length; i++) {
+        const result = await checkEndpoint(healthChecks[i].endpoint);
+        updateTaskListItem(i, result);
+      }
+    }
+
+    // Run checks when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runHealthChecks);
+    } else {
+      runHealthChecks();
+    }
+
+    // Auto-refresh health checks every 30 seconds
+    setInterval(runHealthChecks, 30000);
+  </script>
 </body>
 </html>

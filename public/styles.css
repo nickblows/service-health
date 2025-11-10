@@ -387,3 +387,99 @@ body {
   display: block;
   clear: both;
 }
+
+/* Task List */
+.govuk-task-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.govuk-task-list__item {
+  border-bottom: 1px solid #b1b4b6;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.govuk-task-list__item:first-child {
+  border-top: 1px solid #b1b4b6;
+}
+
+@media (min-width: 40.0625em) {
+  .govuk-task-list__item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+.govuk-task-list__name-and-hint {
+  max-width: 66.66%;
+}
+
+@media (min-width: 40.0625em) {
+  .govuk-task-list__name-and-hint {
+    max-width: 75%;
+  }
+}
+
+.govuk-task-list__name {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.govuk-task-list__hint {
+  margin-top: 5px;
+  color: #505a5f;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+@media (min-width: 40.0625em) {
+  .govuk-task-list__hint {
+    font-size: 19px;
+    line-height: 1.31579;
+  }
+}
+
+.govuk-task-list__status {
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-align: right;
+  float: right;
+}
+
+.govuk-task-list__status--completed {
+  color: #00703c;
+}
+
+.govuk-task-list__status--error {
+  color: #d4351c;
+}
+
+.govuk-task-list__status--loading {
+  color: #505a5f;
+}
+
+/* Status icon */
+.status-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: text-bottom;
+}
+
+.status-icon--completed {
+  color: #00703c;
+}
+
+.status-icon--error {
+  color: #d4351c;
+}
+
+.status-icon--loading {
+  color: #505a5f;
+}

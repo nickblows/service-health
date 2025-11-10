@@ -117,7 +117,7 @@ NODE_ENV=development
 
 ### 6. UI/Frontend
 - [ ] 6.1 Add a defra logo svg
-- [ ] 6.2 Add a GDS style Task List component to show all healthchecks and results
+- [x] 6.2 Add a GDS style Task List component to show all healthchecks and results
 
 ### 7. Documentation
 - [x] 7.1 Update the readme to have a preview image of the finished site
