@@ -132,5 +132,22 @@ try {
   process.exit(1);
 }
 
+// Test 10: Check if .env.example exists with required configuration
+try {
+  const envExamplePath = path.join(__dirname, '..', '.env.example');
+  assert(fs.existsSync(envExamplePath), '.env.example should exist');
+  
+  const content = fs.readFileSync(envExamplePath, 'utf8');
+  assert(content.includes('PORT'), '.env.example should include PORT configuration');
+  assert(content.includes('HOST'), '.env.example should include HOST configuration');
+  assert(content.includes('SERVICE_NAME'), '.env.example should include SERVICE_NAME configuration');
+  assert(content.includes('SERVICE_VERSION'), '.env.example should include SERVICE_VERSION configuration');
+  
+  console.log('✓ Test 10 passed: .env.example exists with required configuration');
+} catch (error) {
+  console.error('✗ Test 10 failed:', error.message);
+  process.exit(1);
+}
+
 console.log('\n✓ All tests passed!');
 process.exit(0);
