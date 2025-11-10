@@ -77,6 +77,7 @@ Available environment variables:
 | `HOST` | Host address to bind to | `0.0.0.0` |
 | `SERVICE_NAME` | Service name displayed in health endpoint | `service-health` |
 | `SERVICE_VERSION` | Service version displayed in health endpoint | `1.0.0` |
+| `MONITORED_SERVICE_URL` | URL of the service to monitor | `https://service-health-nk4s.onrender.com` |
 | `NODE_ENV` | Node environment (development, production) | `development` |
 
 ### Example `.env` file
@@ -86,6 +87,7 @@ PORT=3000
 HOST=0.0.0.0
 SERVICE_NAME=service-health
 SERVICE_VERSION=1.0.0
+MONITORED_SERVICE_URL=https://service-health-nk4s.onrender.com
 NODE_ENV=development
 ```
 
@@ -104,7 +106,7 @@ NODE_ENV=development
 
 ### 3. Configuration
 - [x] 3.1 Add .env file
-- [ ] 3.2 Add a config file for the url of the service to monitor
+- [x] 3.2 Add a config file for the url of the service to monitor
 
 ### 4. Monitoring
 - [x] 4.1 Add Health endpoints
