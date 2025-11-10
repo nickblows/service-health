@@ -56,6 +56,39 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 **HTTP Status:** `200 OK`
 
 **Use Case:** Load balancer health checks and container orchestration readiness probes
+
+## Configuration
+
+The application uses environment variables for configuration. You can configure the service by creating a `.env` file in the root directory.
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and customize the values:
+
+```bash
+cp .env.example .env
+```
+
+Available environment variables:
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `PORT` | Port the server listens on | `3000` |
+| `HOST` | Host address to bind to | `0.0.0.0` |
+| `SERVICE_NAME` | Service name displayed in health endpoint | `service-health` |
+| `SERVICE_VERSION` | Service version displayed in health endpoint | `1.0.0` |
+| `NODE_ENV` | Node environment (development, production) | `development` |
+
+### Example `.env` file
+
+```env
+PORT=3000
+HOST=0.0.0.0
+SERVICE_NAME=service-health
+SERVICE_VERSION=1.0.0
+NODE_ENV=development
+```
+
 ## Preview
 
 ![Service Health Monitor Preview](https://github.com/user-attachments/assets/614286a0-d7c8-44f1-9bcd-aade919d8570)
@@ -70,7 +103,7 @@ Readiness probe endpoint that indicates whether the service is ready to accept t
 - [x] 2.2 Containerise the app
 
 ### 3. Configuration
-- [ ] 3.1 Add .env file
+- [x] 3.1 Add .env file
 - [ ] 3.2 Add a config file for the url of the service to monitor
 
 ### 4. Monitoring

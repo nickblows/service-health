@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const Hapi = require('@hapi/hapi');
 const Inert = require('@hapi/inert');
 const Path = require('path');
@@ -7,7 +9,7 @@ const Path = require('path');
 const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 3000,
-    host: '0.0.0.0',
+    host: process.env.HOST || '0.0.0.0',
     routes: {
       files: {
         relativeTo: Path.join(__dirname, 'public')
@@ -25,8 +27,8 @@ const init = async () => {
       return h.response({
         status: 'ok',
         timestamp: new Date().toISOString(),
-        service: 'service-health',
-        version: '1.0.0'
+        service: process.env.SERVICE_NAME || 'service-health',
+        version: process.env.SERVICE_VERSION || '1.0.0'
       }).code(200);
     }
   });
