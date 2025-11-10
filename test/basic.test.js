@@ -142,6 +142,7 @@ try {
   assert(content.includes('HOST'), '.env.example should include HOST configuration');
   assert(content.includes('SERVICE_NAME'), '.env.example should include SERVICE_NAME configuration');
   assert(content.includes('SERVICE_VERSION'), '.env.example should include SERVICE_VERSION configuration');
+  assert(content.includes('MONITORED_SERVICE_URL'), '.env.example should include MONITORED_SERVICE_URL configuration');
   
   console.log('✓ Test 10 passed: .env.example exists with required configuration');
 } catch (error) {
