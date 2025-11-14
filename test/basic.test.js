@@ -150,5 +150,20 @@ try {
   process.exit(1);
 }
 
+// Test 11: Check if public/index.html has Redeploy Host link in footer
+try {
+  const indexPath = path.join(__dirname, '..', 'public', 'index.html');
+  const content = fs.readFileSync(indexPath, 'utf8');
+  
+  assert(content.includes('Redeploy Host'), 'index.html should contain "Redeploy Host" link text');
+  assert(content.includes('https://api.render.com/deploy/srv-d48be9buibrs7395cgl0?key=ocobHCURKCw'), 
+         'index.html should contain Render deployment URL');
+  
+  console.log('✓ Test 11 passed: public/index.html has Redeploy Host link in footer');
+} catch (error) {
+  console.error('✗ Test 11 failed:', error.message);
+  process.exit(1);
+}
+
 console.log('\n✓ All tests passed!');
 process.exit(0);
