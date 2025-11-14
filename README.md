@@ -1,6 +1,38 @@
 # Service Health
 A simple application for evaluating a live service
 
+<!-- TOC OPTION 1: Simple List Format -->
+## Table of Contents
+- [Live Demo](#live-demo)
+- [Health Endpoints](#health-endpoints)
+- [Configuration](#configuration)
+- [Preview](#preview)
+- [Todo](#todo)
+
+<!-- TOC OPTION 2: Detailed List with Subsections -->
+## Table of Contents
+- [Live Demo](#live-demo)
+- [Health Endpoints](#health-endpoints)
+  - [`/health`](#health-1)
+  - [`/health/live`](#healthlive-1)
+  - [`/health/ready`](#healthready-1)
+- [Configuration](#configuration)
+  - [Environment Variables](#environment-variables)
+  - [Example `.env` file](#example-env-file)
+- [Preview](#preview)
+- [Todo](#todo)
+  - [1. Initial Setup](#1-initial-setup)
+  - [2. Deployment](#2-deployment)
+  - [3. Configuration](#3-configuration)
+  - [4. Monitoring](#4-monitoring)
+  - [5. Infrastructure](#5-infrastructure)
+  - [6. UI/Frontend](#6-uifrontend)
+  - [7. Documentation](#7-documentation)
+
+<!-- TOC OPTION 3: Compact Format with Emoji -->
+## 📋 Table of Contents
+**[Live Demo](#live-demo)** · **[Health Endpoints](#health-endpoints)** · **[Configuration](#configuration)** · **[Preview](#preview)** · **[Todo](#todo)**
+
 ## Live Demo
 The service is deployed and available at: [https://service-health-nk4s.onrender.com](https://service-health-nk4s.onrender.com)
 
