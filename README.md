@@ -1,5 +1,24 @@
+
 # Service Health
 A simple application for evaluating a live service
+
+## Table of Contents
+
+- [Live Demo](#live-demo)
+- [Health Endpoints](#health-endpoints)
+- [Configuration](#configuration)
+- [Preview](#preview)
+- [Todo](#todo)
+
+# Optional Sections (remove any you don't want)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
 
 ## Live Demo
 The service is deployed and available at: [https://service-health-nk4s.onrender.com](https://service-health-nk4s.onrender.com)
@@ -123,3 +142,4 @@ NODE_ENV=development
 - [x] 7.1 Update the readme to have a preview image of the finished site
 - [x] 7.2 Add a link on Readme to the deployed site on Render
 - [x] 7.3 Add a github copilot root instruction file (.github/copilot-instructions.md)
+- [x] 7.4 Add Table of Contents to README
