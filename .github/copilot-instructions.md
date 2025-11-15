@@ -61,13 +61,12 @@ When adding new health endpoints, follow this pattern with consistent response s
 ## Frontend Guidelines
 
 ### GDS Design System
-- Follow GOV.UK Design System patterns and components
+- Follow GOV.UK Design System patterns (rebrand) and components
 - Use GDS typography classes (govuk-heading-*, govuk-body-*)
 - Maintain semantic HTML structure
 - Include appropriate ARIA attributes for accessibility
 
 ### Defra Branding
-- Use Defra logo and branding in headers
 - Maintain consistent styling with Defra services
 - Keep the phase banner (prototype/alpha/beta tags)
 
@@ -141,7 +140,8 @@ service-health/
 2. Write tests first when possible (TDD approach)
 3. Keep changes minimal and focused
 4. Update documentation (README.md) when adding new features
-5. Ensure all tests pass before committing
+5. Always add an updated screenshot to the readme after every change.
+6. Ensure all tests pass before committing
 
 ### Adding Dependencies
 - Only add dependencies when necessary
@@ -153,18 +153,18 @@ service-health/
 - Keep README.md up to date with new features
 - Document all API endpoints with examples
 - Include clear usage instructions
+- Always have a single screenshot of the app in the readme, updated after every change.
 - Provide deployment information
 
 ## Future Development (TODO Items)
 
 Refer to the TODO section in README.md for planned features:
-- Configuration management (.env files)
 - Periodic health check workers
 - Database integration
 - Enhanced UI components (task lists, logos)
 - Additional monitoring capabilities
 
-When implementing TODO items, update the README.md to mark them complete and add corresponding documentation.
+When implementing TODO items, update the README.md to mark them complete and add corresponding documentation and screenshot.
 
 ## Important Notes
 
