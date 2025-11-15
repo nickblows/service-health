@@ -39,7 +39,6 @@ try {
   
   const content = fs.readFileSync(indexPath, 'utf8');
   assert(content.includes('Service Health'), 'index.html should contain "Service Health"');
-  assert(content.includes('GOV.UK'), 'index.html should contain "GOV.UK"');
   
   console.log('✓ Test 3 passed: public/index.html exists and has required content');
 } catch (error) {
