@@ -112,7 +112,7 @@ NODE_ENV=development
 
 ## Preview
 
-![Service Health Monitor Preview](https://github.com/user-attachments/assets/614286a0-d7c8-44f1-9bcd-aade919d8570)
+![Service Health Monitor Preview](https://github.com/user-attachments/assets/bdb392d4-f6b2-4514-87d4-1652af8b1514)
 
 ## Todo
 
