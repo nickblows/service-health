@@ -305,9 +305,9 @@ body {
 .govuk-footer {
   padding-top: 25px;
   padding-bottom: 15px;
-  border-top: 1px solid #b1b4b6;
-  color: #0b0c0c;
-  background: #f3f2f1;
+  border-top: 10px solid #1d70b8;
+  color: #ffffff;
+  background: #383f43;
 }
 
 @media (min-width: 40.0625em) {
@@ -318,12 +318,12 @@ body {
 }
 
 .govuk-footer__link {
-  color: #0b0c0c;
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .govuk-footer__link:hover {
-  color: rgba(11, 12, 12, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .govuk-footer__meta {
